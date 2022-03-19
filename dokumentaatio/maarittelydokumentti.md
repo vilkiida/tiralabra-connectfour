@@ -8,7 +8,7 @@ Kyseessä on siis Connect four -peli , jossa vastapuolet laittavat vuorotellen o
 aina alimpaan mahdolliseen ruutuun valitulla rivillä). Ensimmäinen, joka saa neljä omaa nappulaansa peräkkäin, joko pystyy, vaakaan tai viistoon voittaa. Peliä voi pelata tekoälyä vastaan. 
 
 #### Opinto-ohjelmani:
-Tietojenkäsittely tiede
+Tietojenkäsittelytiede
 
 #### Ohjelmointikieli:
 Python 
