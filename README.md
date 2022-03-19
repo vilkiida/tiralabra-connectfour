@@ -1,1 +1,3 @@
-# tiralabra-connectfour
+# Connect four- peli
+
+## Dokumentit:
