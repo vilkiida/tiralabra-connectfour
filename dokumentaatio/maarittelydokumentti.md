@@ -5,7 +5,7 @@ Suomi
 
 #### Lyhyesti:
 Kyseessä on siis Connect four -peli , jossa vastapuolet laittavat vuorotellen omanvärisensä nappulan 7x6 mittaisen pelilaudan ruutuihin (nappulat putoavat 
-aina alimpaan mahdolliseen ruutuun valitulla rivillä). Ensimmäinen, joka saa neljä omaa nappulaansa peräkkäin, joko pystyy, vaakaan tai viistoon voittaa. Peliä voi pelata tekoälyä vastaan. 
+aina alimpaan mahdolliseen ruutuun valitulla rivillä). Ensimmäinen, joka saa neljä omaa nappulaansa peräkkäin, joko pystyy, vaakaan tai viistoon voittaa. Peliä voi pelata tekoälyä vastaan. Ohjelman toteutan Pygamea käyttäen.
 
 #### Lisää:
 - Pelaaja voi pelata tietokonetta vastaan.
