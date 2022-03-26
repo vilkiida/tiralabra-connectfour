@@ -13,6 +13,6 @@ Pygamella toteutettu peli, jossa 2 pelaajaa kilpailee siitä kumpi saa 7x6 ruudu
 - Ladattuasi sovellus asenna riippuvuudet komennolla **poetry install**
 - Peli käynnistyy komennolla **poetry run invoke start**
 - Pylint raportin saa komennolla **poetry run invoke pylint**
--
+- Testit voi ajaa komennolla **poetry run invoke test**
 
 
