@@ -1,7 +1,9 @@
+"""Moduuli, joka sisältää luokan MainMenu
+"""
 import pygame
 from gamemodules.multiplayer_game import TwoPlayerGame
-
 class MainMenu:
+    """Luokka, joka vastaa valikon toiminnasta"""
     def __init__(self):
         self.screen_height = 700
         self.screen_width = 700
@@ -22,6 +24,7 @@ class MainMenu:
         if self.multiplayer_button.collidepoint(position):
             multiplayer_game = TwoPlayerGame()
             multiplayer_game.run_game()
+            self.reset_caption()
     def draw_text(self, text, x_value, y_value):
         text_area = self.font.render(text, True, (255, 255, 255))
         self.screen.blit(text_area, (x_value, y_value))

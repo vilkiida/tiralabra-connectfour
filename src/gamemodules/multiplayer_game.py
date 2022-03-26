@@ -1,7 +1,9 @@
+"""Moduuli, joka sisältää luokan Game"""
 import pygame
 from gamemodules.slot import Slot
 # ensimmäinen pelaaja on keltainen toinen pelaaja on punainen
 class TwoPlayerGame:
+    """Luokka, joka vastaa kaksinpelin toiminnasta"""
     def __init__(self):
         self.board = [[Slot() for x in range(7)] for y in range(6)]
         self.slot_size = 100
