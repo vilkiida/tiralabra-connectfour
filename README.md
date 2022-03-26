@@ -6,3 +6,7 @@ Pygamella toteutettu peli, jossa 2 pelaajaa kilpailee siitä kumpi saa 7x6 ruudu
 
 ## Viikkoraportit:
 [Viikkoraportti 1](https://github.com/vilkiida/tiralabra-connectfour/blob/main/dokumentaatio/viikkoraportit/viikkoraportti1.md)
+
+[Viikkoraportti 2](https://github.com/vilkiida/tiralabra-connectfour/blob/main/dokumentaatio/viikkoraportit/viikkoraportti2.md)
+
+
