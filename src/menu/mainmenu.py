@@ -1,5 +1,5 @@
 import pygame
-from game.game import TwoPlayerGame
+from gamemodules.multiplayer_game import TwoPlayerGame
 
 class MainMenu:
     def __init__(self):
@@ -47,5 +47,7 @@ class MainMenu:
         while True:
             self.check_events()
             self.draw_screen()
+    def reset_caption(self):
+        pygame.display.set_caption("CONNECT 4")
     
     
