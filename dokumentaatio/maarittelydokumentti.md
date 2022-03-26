@@ -1,7 +1,7 @@
 # Määrittelydokumentti
 
 #### Kieli: 
-Suomi
+Kaikki dokumentointi ja peli itsessään on suomeksi. Koodi taas on kirjoitettu englanninkielellä.
 
 #### Lyhyesti:
 Kyseessä on siis Connect four -peli , jossa vastapuolet laittavat vuorotellen omanvärisensä nappulan 7x6 mittaisen pelilaudan ruutuihin (nappulat putoavat 
