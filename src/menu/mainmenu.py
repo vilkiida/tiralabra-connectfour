@@ -1,4 +1,5 @@
 import pygame
+from game.game import TwoPlayerGame
 
 class MainMenu:
     def __init__(self):
@@ -19,7 +20,8 @@ class MainMenu:
         if self.singleplayer_button.collidepoint(position):
             print("Konetta vastaan")
         if self.multiplayer_button.collidepoint(position):
-            print("Toista pelaajaa vastaan")
+            multiplayer_game = TwoPlayerGame()
+            multiplayer_game.run_game()
     def draw_text(self, text, x_value, y_value):
         text_area = self.font.render(text, True, (255, 255, 255))
         self.screen.blit(text_area, (x_value, y_value))

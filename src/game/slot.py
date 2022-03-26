@@ -5,7 +5,7 @@ class Slot:
         self.__empty = True
         self.__yellow = False
         self.__red = False
-        self.__image = load_image("c4_empty.png")
+        self.image = load_image("c4_empty.png")
     def is_empty(self):
         return self.__empty
     def is_red(self):
@@ -16,14 +16,14 @@ class Slot:
         self.__empty = False
         self.__yellow = False
         self.__red = True
-        self.__image = load_image("c4_red.png")
+        self.image = load_image("c4_red.png")
     def mark_yellow(self):
         self.__empty = False
         self.__red = False
         self.__yellow = True
-        self.__image = load_image("c4_yellow.png")
+        self.image = load_image("c4_yellow.png")
     def mark_empty(self):
         self.__empty = True
         self.__red = False
         self.__yellow = False
-        self.__image = load_image("c4_empty.png")
+        self.image = load_image("c4_empty.png")
