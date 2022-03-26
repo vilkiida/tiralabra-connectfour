@@ -91,11 +91,11 @@ class TwoPlayerGame:
             self.running = False
     def draw_victory(self):
         if self.yellow_won:
-            yellow_text = self.font.render("YELLOW WINS!", True, (255, 255, 0))
-            self.screen.blit(yellow_text, (185,25))
+            yellow_text = self.font.render("KELTAINEN VOITTI!", True, (255, 255, 0))
+            self.screen.blit(yellow_text, (150,25))
         if self.red_won:
-            red_text = self.font.render("RED WINS!", True, (255, 0, 0))
-            self.screen.blit(red_text, (230,25))
+            red_text = self.font.render("PUNAINEN VOITTI!", True, (255, 0, 0))
+            self.screen.blit(red_text, (150,25))
     def check_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
