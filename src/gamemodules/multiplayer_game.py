@@ -9,7 +9,7 @@ class TwoPlayerGame:
         self.slot_size = 100
         self.screen_height = self.slot_size * 7
         self.screen_width = self.slot_size * 7
-        self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
+        self.screen = None
         self.running = False
         self.red_won = False
         self.yellow_won = False
@@ -19,6 +19,7 @@ class TwoPlayerGame:
     def run_game(self):
         while True:
             pygame.init()
+            self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
             pygame.display.set_caption("CONNECT 4 - toista pelaajaa vastaan")
             self.font = pygame.font.SysFont("Arial", 45, 1)
             self.running = True
