@@ -1,9 +1,9 @@
 import unittest
-from gamemodules.multiplayer_game import TwoPlayerGame
+from gamemodules.multiplayer_game import Game
 
 class TestMultiplayerGame(unittest.TestCase):
     def setUp(self):
-        self.game = TwoPlayerGame()
+        self.game = Game()
     def test_after_setup_running_is_False(self):
         self.assertEqual(False, self.game.running)
     def test_after_setup_game_is_not_over(self):

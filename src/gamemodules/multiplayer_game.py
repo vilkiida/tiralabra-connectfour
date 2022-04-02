@@ -2,7 +2,7 @@
 import pygame
 from gamemodules.slot import Slot
 # ensimmäinen pelaaja on keltainen toinen pelaaja on punainen
-class TwoPlayerGame:
+class Game:
     """Luokka, joka vastaa kaksinpelin toiminnasta"""
     def __init__(self):
         self.board = [[Slot() for x in range(7)] for y in range(6)]
@@ -16,11 +16,12 @@ class TwoPlayerGame:
         self.game_over = False
         self.first_players_turn = True
         self.font = None
+        self.title = "toista pelaajaa vastaan"
     def run_game(self):
         while True:
             pygame.init()
             self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
-            pygame.display.set_caption("CONNECT 4 - toista pelaajaa vastaan")
+            pygame.display.set_caption(f"CONNECT 4 - {self.title}")
             self.font = pygame.font.SysFont("Arial", 45, 1)
             self.running = True
             self.gameloop()
@@ -70,14 +71,18 @@ class TwoPlayerGame:
         self.check_vertical()
         self.check_upwards_diagonal()
         self.check_downwards_diagonal()
+    def check_for_draw(self):
+        full = True
+        for x in range(0,7):
+            if not self.column_full(x):
+                full = False
+        return full
     def left_click(self, position):
         if not self.game_over:
             (x,y) = position
             y -= 100
             y = y//100
             x = x//100
-            print(x)
-            print(y)
             if not self.column_full(x):
                 for i in range(5,-1,-1):
                     if self.board[i][x].is_empty():
@@ -90,6 +95,7 @@ class TwoPlayerGame:
                             self.first_players_turn = True
                             break
             self.check_for_win()
+            self.check_for_draw()
         else:
             self.running = False
     def draw_victory(self):
@@ -106,7 +112,6 @@ class TwoPlayerGame:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
                     position = pygame.mouse.get_pos()
-                    print(position)
                     self.left_click(position)
     def draw_screen(self):
         self.screen.fill((22,8,91))

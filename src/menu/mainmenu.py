@@ -1,7 +1,8 @@
 """Moduuli, joka sisältää luokan MainMenu
 """
 import pygame
-from gamemodules.multiplayer_game import TwoPlayerGame
+from gamemodules.multiplayer_game import Game
+from gamemodules.singleplayer_game import SinglePlayerGame
 class MainMenu:
     """Luokka, joka vastaa valikon toiminnasta"""
     def __init__(self):
@@ -20,9 +21,11 @@ class MainMenu:
         self.menu_loop()
     def mouse_click(self, position):
         if self.singleplayer_button.collidepoint(position):
-            print("Konetta vastaan")
+            singleplayer_game = SinglePlayerGame()
+            singleplayer_game.run_game()
+            self.reset_caption()
         if self.multiplayer_button.collidepoint(position):
-            multiplayer_game = TwoPlayerGame()
+            multiplayer_game = Game()
             multiplayer_game.run_game()
             self.reset_caption()
     def draw_text(self, text, x_value, y_value):
