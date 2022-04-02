@@ -1,15 +1,21 @@
 from gamemodules.multiplayer_game import Game
+from gamemodules import ai
 class SinglePlayerGame(Game):
     def __init__(self):
         super().__init__()
         self.title = "tietokonetta vastaan"
     def ai_turn(self):
-        for y in range(5,-1,-1):
-            for x in range(0,7):
-                if self.board[y][x].is_empty():
-                    self.board[y][x].mark_red()
-                    self.first_players_turn=True
-                    return
+        #väliaikainen koska minimax kesken:
+        for x in range(0,7):
+            y = ai.lowest_available(self.board, x)
+            self.board[y][x].mark_red()
+            self.first_players_turn = True
+            return
+        # oikea:
+        # y, x = ai.find_best_move(self.board)
+        # self.board[y][x].mark_red()
+        # self.first_players_turn = True
+        # return
     def left_click(self, position):
         if not self.game_over:
             (x,y) = position
