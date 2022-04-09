@@ -5,17 +5,9 @@ class SinglePlayerGame(Game):
         super().__init__()
         self.title = "tietokonetta vastaan"
     def ai_turn(self):
-        #väliaikainen koska minimax kesken:
-        for x in range(0,7):
-            y = ai.lowest_available(self.board, x)
-            self.board[y][x].mark_red()
-            self.first_players_turn = True
-            return
-        # oikea:
-        # y, x = ai.find_best_move(self.board)
-        # self.board[y][x].mark_red()
-        # self.first_players_turn = True
-        # return
+        y, x = ai.find_best_move(self.board)
+        self.board[y][x].mark_red()
+        self.first_players_turn = True
     def left_click(self, position):
         if not self.game_over:
             (x,y) = position
