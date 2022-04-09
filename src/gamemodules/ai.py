@@ -1,6 +1,8 @@
 """Moduuli, joka sisältää tekoäly vastuksen logiikkaan liittyviä funktioita"""
 from gamemodules import game_logic
 ORDER = [3,2,4,1,5,0,6]
+INF = 10000000
+DEPTH = 6
 def lowest_available(board, x):
     """Funktio, joka etsii halutun sarakkeen x alimman vapaan ruudun koordinaatin y. Jos täynnä niin palauttaa -1"""
     for y in range(5,-1,-1):
@@ -115,7 +117,7 @@ def calculate_board(board):
                 -100  (Pelaajalla kolme peräkkäin (ilman että blokattu), koska tällöin pelaaja voi voittaa tulevalla vuorollaan)
                 +5    (AI:lla kaksi peräkkäin (ilman että blokattu))
                 -5    (Pelaajalla kaksi peräkkäin (ilman että blokattu))
-                +2    (jos keskimmäinen sarake)
+                +2    (jos keskimmäinen sarake alkua varten)
     """
     grade = 0
     win = game_logic.win_check(board)
@@ -134,18 +136,19 @@ def calculate_board(board):
 
 def find_best_move(board):
     """Funktio, joka palauttaa parhaan reitin. Kutsuu minimax algoritmia."""
-    bestgrade = -1000
+    bestgrade = -INF
     for x in ORDER:
         y = lowest_available(board, x)
         if y == -1:
             continue
         board[y][x].mark_red()
-        bestgrade = max(bestgrade, minimax(board, False, 3))
+        bestgrade = max(bestgrade, minimax(board, False, DEPTH, -INF, INF))
+        print(f"x:{x} ja best grade = {bestgrade}")
         board[y][x].mark_empty()
         move =  (y,x)
     return move
 
-def minimax(board, is_max, depth):
+def minimax(board, is_max, depth, alpha, beta):
     """Funktio, joka toteuttaa minimax algoritmin. Sille annetaan argumentiksi pelilauta, boolean arvo, joka määrittää ollaanko minimax algoritmin
     min vai max kohdassa. Viimeinen argumentti on syvyys. Kun funktiota ensimmäisen kerran kutsutaan annetaan syyvyys kuinka pitkälle siirtoja halutaan laskea"""
     if depth == 0:
@@ -153,23 +156,31 @@ def minimax(board, is_max, depth):
     if game_logic.win_check(board) != 0:
         return calculate_board(board)
     if is_max:
-        bestgrade = -1000
+        bestgrade = -INF
         for x in ORDER:
             y = lowest_available(board, x)
             if y == -1:
                 continue
             board[y][x].mark_red()
-            bestgrade = max(bestgrade, minimax(board, False, depth - 1))
-            board[y][x].mark_empty()   
+            grade = minimax(board, False, depth - 1, alpha, beta)
+            board[y][x].mark_empty()
+            bestgrade = max(bestgrade, grade)
+            alpha = max(alpha, grade)  
+            if beta <= alpha:
+                break 
         return bestgrade
     if not is_max:
-        bestgrade = 1000
+        bestgrade = INF
         for x in ORDER:
             y = lowest_available(board, x)
             if y == -1:
                 continue
             board[y][x].mark_yellow()
-            bestgrade = min(bestgrade, minimax(board, True, depth - 1))
+            grade = minimax(board, True, depth - 1, alpha, beta)
             board[y][x].mark_empty()
+            bestgrade = min(bestgrade, grade)
+            beta = min(beta, grade)
+            if beta <= alpha:
+                break
         return bestgrade
 
