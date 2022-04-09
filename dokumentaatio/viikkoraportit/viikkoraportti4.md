@@ -10,5 +10,8 @@ jonka takia valinta menee pieleen (Valitsee aina reunimmaisen?). Aijon kuitenkin
 Deadlineen mennessä vielä ohjelma ei näytä edistyneen paljon sillä minimax algoritmissa on jokin bugi, minkä takia AI valitsee oudosti aina reunimmaisen sarakkeen. 
 (Yritän sunnuntain aikana saada ainakin yksinpelin toimimaan oikein ja mahdollisesti myös lisään testejä AI:lle)
 
-#### Ongelmia:
-Toistaiseksi isoin ongelma on bugi miksi AI ei toimi oikein.
+#### Puutteita:
+- Toistaiseksi isoin ongelma on bugi miksi AI ei toimi oikein.
+- Testejä lisää.
+- Tasapelistä jokin ilmoitus!!
+
