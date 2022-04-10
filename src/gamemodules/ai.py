@@ -2,7 +2,7 @@
 from gamemodules import game_logic
 ORDER = [3,2,4,1,5,0,6]
 INF = 10000000
-DEPTH = 6
+DEPTH = 4
 def lowest_available(board, x):
     """Funktio, joka etsii halutun sarakkeen x alimman vapaan ruudun koordinaatin y. Jos täynnä niin palauttaa -1"""
     for y in range(5,-1,-1):
@@ -136,16 +136,18 @@ def calculate_board(board):
 
 def find_best_move(board):
     """Funktio, joka palauttaa parhaan reitin. Kutsuu minimax algoritmia."""
+    move = (-1, -1)
     bestgrade = -INF
     for x in ORDER:
         y = lowest_available(board, x)
         if y == -1:
             continue
         board[y][x].mark_red()
-        bestgrade = max(bestgrade, minimax(board, False, DEPTH, -INF, INF))
-        print(f"x:{x} ja best grade = {bestgrade}")
+        grade = minimax(board, False, DEPTH, -INF, INF)
         board[y][x].mark_empty()
-        move =  (y,x)
+        if grade > bestgrade:
+            bestgrade = grade
+            move =  (y,x)
     return move
 
 def minimax(board, is_max, depth, alpha, beta):
