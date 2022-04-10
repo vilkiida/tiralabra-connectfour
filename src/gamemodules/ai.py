@@ -111,7 +111,7 @@ def diagonal_downwards_line_check(board):
     return grade_change
 def calculate_board(board):
     """Funktio, joka palauttaa minimax algoritmille tarvittavan arvosanan kyseisestä pelitilanteesta.
-    Arvosana:   +1000 (jos AI voittanut)
+    Arvosana:   +10000 (jos AI voittanut)
                 -1000 (jos pelaaja voittanut)
                 +10   (AI:lla kolme peräkkäin (ilman että blokattu))
                 -100  (Pelaajalla kolme peräkkäin (ilman että blokattu), koska tällöin pelaaja voi voittaa tulevalla vuorollaan)
@@ -124,7 +124,7 @@ def calculate_board(board):
     if win == 1:
         grade -= 1000
     elif win == 2:
-        grade += 1000
+        grade += 10000
     else:
         if board[5][3].is_red():
             grade += 2

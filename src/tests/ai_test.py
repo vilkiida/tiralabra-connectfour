@@ -29,7 +29,7 @@ class TestAI(unittest.TestCase):
         self.board[5][6].mark_yellow()
         #punainen tekee voittavan siirron
         self.board[1][3].mark_red()
-        self.assertEqual(1000, ai.calculate_board(self.board))
+        self.assertEqual(10000, ai.calculate_board(self.board))
     
     def test_calculate_board_gives_correct_value_when_player_has_4_in_row(self):
         #keltainen tekee voittavan siirron
