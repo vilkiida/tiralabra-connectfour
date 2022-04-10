@@ -122,9 +122,9 @@ def calculate_board(board):
     grade = 0
     win = game_logic.win_check(board)
     if win == 1:
-        grade += 1000
-    elif win == 2:
         grade -= 1000
+    elif win == 2:
+        grade += 1000
     else:
         if board[5][3].is_red():
             grade += 2
