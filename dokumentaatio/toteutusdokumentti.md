@@ -11,5 +11,5 @@
 #### Lähteet:
 
 ##### Kuvien lähteet:
-Pelin kaikki kolme kuvaa: [c4-empty.png](https://github.com/vilkiida/tiralabra-connectfour/src/assets/c4-empty.png) (tyhjä pelilaudan ruutu), [c4-red.png](https://github.com/vilkiida/tiralabra-connectfour/src/assets/c4-red.png) (punainen pelinappula pelaudan ruudussa), 
-[c4-yellow.png](https://github.com/vilkiida/tiralabra-connectfour/src/assets/c4-yellow.png) (keltainen pelinappula pelaudan ruudussa) on itse piirrettyjä Procreate-sovelluksella.
+Pelin kaikki kolme kuvaa: [c4_empty.png](https://github.com/vilkiida/tiralabra-connectfour/src/assets/c4_empty.png) (tyhjä pelilaudan ruutu), [c4_red.png](https://github.com/vilkiida/tiralabra-connectfour/src/assets/c4_red.png) (punainen pelinappula pelaudan ruudussa), 
+[c4_yellow.png](https://github.com/vilkiida/tiralabra-connectfour/src/assets/c4_yellow.png) (keltainen pelinappula pelaudan ruudussa) on itse piirrettyjä Procreate-sovelluksella.
