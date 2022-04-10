@@ -19,19 +19,19 @@ def horisontal_line_check(board):
             if board[y][x].is_yellow() and board[y][x+1].is_yellow() and board[y][x+2].is_yellow():
                 grade_change -= 100
             if x == 0:
-                if board[y][x].is_red() and board[y][x+1].is_red() and not board[y][x+2].is_red():
+                if board[y][x].is_red() and board[y][x+1].is_red() and board[y][x+2].is_empty():
                     grade_change += 5
-                if board[y][x].is_yellow() and board[y][x+1].is_yellow() and not board[y][x+2].is_yellow():
+                if board[y][x].is_yellow() and board[y][x+1].is_yellow() and board[y][x+2].is_empty():
                     grade_change -= 5
             if x == 4:
-                if not board[y][x].is_red() and board[y][x+1].is_red() and board[y][x+2].is_red():
+                if board[y][x].is_empty() and board[y][x+1].is_red() and board[y][x+2].is_red():
                     grade_change += 5
-                if not board[y][x].is_yellow() and board[y][x+1].is_yellow() and board[y][x+2].is_yellow():
+                if board[y][x].is_empty() and board[y][x+1].is_yellow() and board[y][x+2].is_yellow():
                     grade_change -= 5
             if x != 0:
-                if not board[y][x-1].is_red() and board[y][x].is_red() and board[y][x+1].is_red() and board[y][x+2].is_red():
+                if not board[y][x-1].is_red() and board[y][x].is_red() and board[y][x+1].is_red() and board[y][x+2].is_red() and (board[y][x-1].is_empty() or board[y][x+2].is_empty()):
                     grade_change += 5
-                if not board[y][x-1].is_yellow() and board[y][x].is_yellow() and board[y][x+1].is_yellow() and board[y][x+2].is_yellow():
+                if not board[y][x-1].is_yellow() and board[y][x].is_yellow() and board[y][x+1].is_yellow() and board[y][x+2].is_yellow() and (board[y][x-1].is_empty() or board[y][x+2].is_empty()):
                     grade_change -= 5
     return grade_change
 def vertical_line_check(board):
@@ -44,19 +44,19 @@ def vertical_line_check(board):
             if board[y][x].is_yellow() and board[y-1][x].is_yellow() and board[y-2][x].is_yellow():
                 grade_change -= 100
             if y == 5:
-                if board[y][x].is_red() and board[y-1][x].is_red() and not board[y-2][x].is_red():
+                if board[y][x].is_red() and board[y-1][x].is_red() and board[y-2][x].is_empty():
                     grade_change += 5
-                if board[y][x].is_yellow() and board[y-1][x].is_yellow() and not board[y-2][x].is_yellow():
+                if board[y][x].is_yellow() and board[y-1][x].is_yellow() and board[y-2][x].is_empty():
                     grade_change -= 5
             if y == 2:
-                if not board[y][x].is_red() and board[y-1][x].is_red() and board[y-2][x].is_red():
+                if board[y][x].is_empty() and board[y-1][x].is_red() and board[y-2][x].is_red():
                     grade_change += 5
-                if not board[y][x].is_yellow() and board[y-1][x].is_yellow() and board[y-2][x].is_yellow():
+                if board[y][x].is_empty() and board[y-1][x].is_yellow() and board[y-2][x].is_yellow():
                     grade_change -= 5
             if y != 5:
-                if not board[y+1][x].is_red() and board[y][x].is_red() and board[y-1][x].is_red() and not board[y-2][x].is_red():
+                if not board[y+1][x].is_red() and board[y][x].is_red() and board[y-1][x].is_red() and not board[y-2][x].is_red() and (board[y+1][x].is_empty() or board[y-2][x].is_empty()):
                     grade_change += 5
-                if not board[y+1][x].is_yellow() and board[y][x].is_yellow() and board[y-1][x].is_yellow() and not board[y-2][x].is_yellow():
+                if not board[y+1][x].is_yellow() and board[y][x].is_yellow() and board[y-1][x].is_yellow() and not board[y-2][x].is_yellow() and (board[y+1][x].is_empty() or board[y-2][x].is_empty()):
                     grade_change -= 5
     return grade_change
 def diagonal_upwards_line_check(board):
@@ -69,19 +69,19 @@ def diagonal_upwards_line_check(board):
             if board[y][x].is_yellow() and board[y-1][x+1].is_yellow() and board[y-2][x+2].is_yellow():
                 grade_change -= 100
             if x == 0 or y == 5:
-                if board[y][x].is_red() and board[y-1][x+1].is_red() and not board[y-2][x+2].is_red():
+                if board[y][x].is_red() and board[y-1][x+1].is_red() and board[y-2][x+2].is_empty():
                     grade_change += 5
-                if board[y][x].is_yellow() and board[y-1][x+1].is_yellow() and not board[y-2][x+2].is_yellow():
+                if board[y][x].is_yellow() and board[y-1][x+1].is_yellow() and board[y-2][x+2].is_empty():
                     grade_change -= 5
             if x == 4 or y == 2:
-                if not board[y][x].is_red() and board[y-1][x+1].is_red() and board[y-2][x+2].is_red():
+                if board[y][x].is_empty() and board[y-1][x+1].is_red() and board[y-2][x+2].is_red():
                     grade_change += 5
-                if not board[y][x].is_yellow() and board[y-1][x+1].is_yellow() and board[y-2][x+2].is_yellow():
+                if board[y][x].is_empty() and board[y-1][x+1].is_yellow() and board[y-2][x+2].is_yellow():
                     grade_change -= 5
             if x != 0 and y != 5:
-                if not board[y+1][x-1].is_red() and board[y][x].is_red() and board[y-1][x+1].is_red() and not board[y-2][x+2].is_red():
+                if not board[y+1][x-1].is_red() and board[y][x].is_red() and board[y-1][x+1].is_red() and not board[y-2][x+2].is_red() and (board[y+1][x-1].is_empty() or board[y-2][x+2].is_empty()):
                     grade_change += 5
-                if not board[y+1][x-1].is_yellow() and board[y][x].is_yellow() and board[y-1][x+1].is_yellow() and not board[y-2][x+2].is_yellow():
+                if not board[y+1][x-1].is_yellow() and board[y][x].is_yellow() and board[y-1][x+1].is_yellow() and not board[y-2][x+2].is_yellow() and (board[y+1][x-1].is_empty() or board[y-2][x+2].is_empty()):
                     grade_change -= 5
     return grade_change
 def diagonal_downwards_line_check(board):
@@ -94,19 +94,19 @@ def diagonal_downwards_line_check(board):
             if board[y][x].is_yellow() and board[y-1][x-1].is_yellow() and board[y-2][x-2].is_yellow():
                 grade_change -= 100
             if x == 6 or y == 5:
-                if board[y][x].is_red() and board[y-1][x-1].is_red() and not board[y-2][x-2].is_red():
+                if board[y][x].is_red() and board[y-1][x-1].is_red() and board[y-2][x-2].is_empty():
                     grade_change += 5
-                if board[y][x].is_yellow() and board[y-1][x-1].is_yellow() and not board[y-2][x-2].is_yellow():
+                if board[y][x].is_yellow() and board[y-1][x-1].is_yellow() and board[y-2][x-2].is_empty():
                     grade_change -= 5
             if x == 2 or y == 2:
-                if not board[y][x].is_red() and board[y-1][x-1].is_red() and board[y-2][x-2].is_red():
+                if board[y][x].is_empty() and board[y-1][x-1].is_red() and board[y-2][x-2].is_red():
                     grade_change += 5
-                if not board[y][x].is_yellow() and board[y-1][x-1].is_yellow() and board[y-2][x-2].is_yellow():
+                if board[y][x].is_empty() and board[y-1][x-1].is_yellow() and board[y-2][x-2].is_yellow():
                     grade_change -= 5
             if y != 5 and x != 6:
-                if not board[y+1][x+1].is_red() and board[y][x].is_red() and board[y-1][x-1].is_red() and not board[y-2][x-2].is_red():
+                if not board[y+1][x+1].is_red() and board[y][x].is_red() and board[y-1][x-1].is_red() and not board[y-2][x-2].is_red() and (board[y+1][x+1].is_empty() or board[y-2][x-2].is_empty()):
                     grade_change += 5
-                if not board[y+1][x+1].is_yellow() and board[y][x].is_yellow() and board[y-1][x-1].is_yellow() and not board[y-2][x-2].is_yellow():
+                if not board[y+1][x+1].is_yellow() and board[y][x].is_yellow() and board[y-1][x-1].is_yellow() and not board[y-2][x-2].is_yellow() and (board[y+1][x+1].is_empty() or board[y-2][x-2].is_empty()):
                     grade_change -= 5
     return grade_change
 def calculate_board(board):
