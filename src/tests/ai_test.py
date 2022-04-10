@@ -44,3 +44,15 @@ class TestAI(unittest.TestCase):
 
     def test_diagonal_upward_check_gives_right_grade_change_value(self):
         self.assertEqual(-95, ai.diagonal_upwards_line_check(self.board))
+    
+    def test_find_best_move_makes_win_if_possible(self):
+        #keltaisen huono siirto
+        self.board[5][6].mark_yellow()
+        self.assertEqual((1,3),ai.find_best_move(self.board))
+    
+    def test_find_best_moves_blocks_other_players_win(self):
+        #vastustaja blokkaa AI:n voiton
+        self.board[1][3].mark_yellow()
+        #blokkaako nyt AI pelaajan voiton?
+        self.assertEqual((2,2), ai.find_best_move(self.board))
+    
