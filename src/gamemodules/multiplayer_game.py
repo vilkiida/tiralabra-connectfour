@@ -1,4 +1,5 @@
 """Moduuli, joka sisältää luokan Game"""
+from doctest import ELLIPSIS_MARKER
 import pygame
 from gamemodules import game_logic
 from gamemodules.slot import Slot
@@ -14,6 +15,7 @@ class Game:
         self.running = False
         self.red_won = False
         self.yellow_won = False
+        self.tie_game = False
         self.game_over = False
         self.first_players_turn = True
         self.font = None
@@ -27,6 +29,14 @@ class Game:
             self.running = True
             self.gameloop()
             break
+    def restart_game(self):
+        self.board = [[Slot() for x in range(7)] for y in range(6)]
+        self.running = True
+        self.red_won = False
+        self.yellow_won = False
+        self.tie_game = False
+        self.game_over = False
+        self.first_players_turn = True
     def column_full(self, x_value):
         return game_logic.column_full_check(self.board, x_value)
     def red_wins(self):
@@ -41,8 +51,12 @@ class Game:
             self.yellow_wins()
         if result ==2:
             self.red_wins()
-    def check_for_draw(self):
-        return game_logic.draw_check(self.board)
+    def check_for_tie(self):
+        if game_logic.tie_check(self.board):
+            self.tie()
+    def tie(self):
+        self.game_over = True
+        self.tie_game = True
     def left_click(self, position):
         if not self.game_over:
             (x,y) = position
@@ -61,7 +75,7 @@ class Game:
                             self.first_players_turn = True
                             break
             self.check_for_win()
-            self.check_for_draw()
+            self.check_for_tie()
         else:
             self.running = False
     def draw_victory(self):
@@ -71,10 +85,18 @@ class Game:
         if self.red_won:
             red_text = self.font.render("PUNAINEN VOITTI!", True, (255, 0, 0))
             self.screen.blit(red_text, (150,25))
+    def draw_tie(self):
+        tie_text = self.font.render("TASAPELI", True, (255,255,255))
+        self.screen.blit(tie_text, (250,25))
     def check_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 exit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_a:
+                    self.restart_game()
+                if event.key == pygame.K_t:
+                    self.running = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
                     position = pygame.mouse.get_pos()
@@ -86,7 +108,10 @@ class Game:
                 slot = self.board[y_value][x_value]
                 self.screen.blit(slot.image, (x_value*self.slot_size, y_value*self.slot_size+100))
         if self.game_over:
-            self.draw_victory()
+            if not self.tie_game:
+                self.draw_victory()
+            else:
+                self.draw_tie()
         pygame.display.flip()
     def gameloop(self):
         while self.running:

@@ -1,5 +1,5 @@
 """Mooduli joka sisältää pelilogiikkaan liittyviä funktioita"""
-def draw_check(board):
+def tie_check(board):
     """Funktio, joka laskee ja palauttaa boolean arvon riippuen onko pelilauta täynnä eli kaikki pelimerkit pelattu (tasapeli)"""
     full = True
     for x in range(0,7):
