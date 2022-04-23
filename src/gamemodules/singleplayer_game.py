@@ -19,6 +19,7 @@ class SinglePlayerGame(Game):
                     if self.board[i][x].is_empty():
                         if self.first_players_turn:
                             self.board[i][x].mark_yellow()
+                            self.draw_screen()
                             self.first_players_turn = False
                             self.ai_turn()
                             break

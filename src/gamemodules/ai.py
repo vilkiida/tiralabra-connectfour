@@ -2,7 +2,7 @@
 from gamemodules import game_logic
 ORDER = [3,2,4,1,5,0,6]
 INF = 10000000
-DEPTH = 4
+DEPTH = 6
 def lowest_available(board, x):
     """Funktio, joka etsii halutun sarakkeen x alimman vapaan ruudun koordinaatin y. Jos täynnä niin palauttaa -1"""
     for y in range(5,-1,-1):
@@ -109,15 +109,35 @@ def diagonal_downwards_line_check(board):
                 if not board[y+1][x+1].is_yellow() and board[y][x].is_yellow() and board[y-1][x-1].is_yellow() and not board[y-2][x-2].is_yellow() and (board[y+1][x+1].is_empty() or board[y-2][x-2].is_empty()):
                     grade_change -= 5
     return grade_change
+# def calculate_board(board):
+#     """Funktio, joka palauttaa minimax algoritmille tarvittavan arvosanan kyseisestä pelitilanteesta.
+#     Arvosana:   +10000 (jos AI voittanut)
+#                 -1000 (jos pelaaja voittanut)
+#                 +10   (AI:lla kolme peräkkäin (ilman että blokattu))
+#                 -100  (Pelaajalla kolme peräkkäin (ilman että blokattu), koska tällöin pelaaja voi voittaa tulevalla vuorollaan)
+#                 +5    (AI:lla kaksi peräkkäin (ilman että blokattu))
+#                 -5    (Pelaajalla kaksi peräkkäin (ilman että blokattu))
+#                 +2    (jos keskimmäinen sarake alkua varten)
+#     """
+#     grade = 0
+#     win = game_logic.win_check(board)
+#     if win == 1:
+#         grade -= 1000
+#     elif win == 2:
+#         grade += 10000
+#     else:
+#         if board[5][3].is_red():
+#             grade += 2
+#         grade += vertical_line_check(board)
+#         grade += horisontal_line_check(board)
+#         grade += diagonal_upwards_line_check(board)
+#         grade += diagonal_downwards_line_check(board)
+#     return grade
+
 def calculate_board(board):
     """Funktio, joka palauttaa minimax algoritmille tarvittavan arvosanan kyseisestä pelitilanteesta.
     Arvosana:   +10000 (jos AI voittanut)
                 -1000 (jos pelaaja voittanut)
-                +10   (AI:lla kolme peräkkäin (ilman että blokattu))
-                -100  (Pelaajalla kolme peräkkäin (ilman että blokattu), koska tällöin pelaaja voi voittaa tulevalla vuorollaan)
-                +5    (AI:lla kaksi peräkkäin (ilman että blokattu))
-                -5    (Pelaajalla kaksi peräkkäin (ilman että blokattu))
-                +2    (jos keskimmäinen sarake alkua varten)
     """
     grade = 0
     win = game_logic.win_check(board)
@@ -125,13 +145,6 @@ def calculate_board(board):
         grade -= 1000
     elif win == 2:
         grade += 10000
-    else:
-        if board[5][3].is_red():
-            grade += 2
-        grade += vertical_line_check(board)
-        grade += horisontal_line_check(board)
-        grade += diagonal_upwards_line_check(board)
-        grade += diagonal_downwards_line_check(board)
     return grade
 
 def find_best_move(board):
