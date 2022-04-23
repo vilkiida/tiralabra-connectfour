@@ -25,6 +25,6 @@ class SinglePlayerGame(Game):
                         else:
                             break
             self.check_for_win()
-            self.check_for_draw()
+            self.check_for_tie()
         else:
             self.running = False
