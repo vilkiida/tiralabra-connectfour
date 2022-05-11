@@ -16,7 +16,7 @@ Minimax algoritmia varten pelilaudan eri tilanteille arvosanoja laskeva funktio 
 
 [Connect Four - Wikipedia](https://en.wikipedia.org/wiki/Connect_Four)
 
-[Alpha Beta karsinnan ideaa selventävä youtube video](https://www.youtube.com/watch?v=l-hh51ncgDI)
+[Alpha Beta karsinnan ja minimax:in ideaa selventävä youtube-video](https://www.youtube.com/watch?v=l-hh51ncgDI)
 
 ##### Kuvien lähteet:
 Pelin kaikki viisi kuvaa: [c4_empty.png](https://github.com/vilkiida/tiralabra-connectfour/blob/main/src/assets/c4_empty.png) (tyhjä pelilaudan ruutu), [c4_red.png](https://github.com/vilkiida/tiralabra-connectfour/blob/main/src/assets/c4_red.png) (punainen pelinappula pelaudan ruudussa), 
