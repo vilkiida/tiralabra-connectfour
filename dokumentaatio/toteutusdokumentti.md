@@ -7,6 +7,7 @@
 #### Suorituskyky- ja O-analyysivertailu:
 
 #### Työn mahdolliset puutteet ja parannusehdotukset:
+Minimax algoritmia varten pelilaudan eri tilanteille arvosanoja laskeva funktio voisi olla tehokkaampi. Rivien läpikäynti voisi olla nopeampi.
 
 #### Lähteet:
 [Minimax algoritmi - Wikipedia](https://en.wikipedia.org/wiki/Minimax)
