@@ -3,6 +3,7 @@ from doctest import ELLIPSIS_MARKER
 import pygame
 from gamemodules import game_logic
 from gamemodules.slot import Slot
+from load_image import load_image
 # ensimmäinen pelaaja on keltainen toinen pelaaja on punainen
 class Game:
     """Luokka, joka vastaa kaksinpelin toiminnasta"""
@@ -20,6 +21,9 @@ class Game:
         self.first_players_turn = True
         self.font = None
         self.title = "toista pelaajaa vastaan"
+        self.red_token=load_image("c4_red_piece.png")
+        self.yellow_token=load_image("c4_yellow_piece.png")
+        self.mouse_pos = (0,0)
     def run_game(self):
         while True:
             pygame.init()
@@ -101,6 +105,19 @@ class Game:
                 if event.button == 1:
                     position = pygame.mouse.get_pos()
                     self.left_click(position)
+            if event.type == pygame.MOUSEMOTION:
+                    self.mouse_pos = pygame.mouse.get_pos()
+    def draw_token(self):
+        x = self.mouse_pos[0]
+        x-=50
+        if x < 0:
+            x = 0
+        if x >= 600:
+            x = 600
+        if self.first_players_turn:
+            self.screen.blit(self.yellow_token, (x,0))
+        else:
+            self.screen.blit(self.red_token, (x,0))
     def draw_screen(self):
         self.screen.fill((22,8,91))
         for y_value in range(6):
@@ -112,6 +129,9 @@ class Game:
                 self.draw_victory()
             else:
                 self.draw_tie()
+        if not self.game_over:
+            self.draw_token()
+            pygame.display.update()
         pygame.display.flip()
     def gameloop(self):
         while self.running:
