@@ -8,6 +8,8 @@ Pygamella toteutettu peli, jossa 2 pelaajaa kilpailee siitä kumpi saa 7x6 ruudu
 
 [Toteustusdokumentti](https://github.com/vilkiida/tiralabra-connectfour/blob/main/dokumentaatio/toteutusdokumentti.md)
 
+[Käyttöohje](https://github.com/vilkiida/tiralabra-connectfour/blob/main/dokumentaatio/kayttoohje.md)
+
 ## Viikkoraportit:
 [Viikkoraportti 1](https://github.com/vilkiida/tiralabra-connectfour/blob/main/dokumentaatio/viikkoraportit/viikkoraportti1.md)
 
@@ -20,12 +22,3 @@ Pygamella toteutettu peli, jossa 2 pelaajaa kilpailee siitä kumpi saa 7x6 ruudu
 [Viikkoraportti 5](https://github.com/vilkiida/tiralabra-connectfour/blob/main/dokumentaatio/viikkoraportit/viikkoraportti5.md)
 
 [Viikkoraportti 6](https://github.com/vilkiida/tiralabra-connectfour/blob/main/dokumentaatio/viikkoraportit/viikkoraportti6.md)
-## Väliaikainen käyttöohje:
-- Ladattuasi sovellus asenna riippuvuudet komennolla **poetry install**
-- Peli käynnistyy komennolla **poetry run invoke start**
-- Pylint raportin saa komennolla **poetry run invoke pylint**
-- Testit voi ajaa komennolla **poetry run invoke test**
-
-- Peliä peletessa "a" - näppäimellä saa nykyisen pelin aloitettua alusta (oli se sitten kesken tai jo voitettu)
-- Peliä pelatessa "t" - näppäimellä pääsee nykyisestä pelistä takaisin pelivalikkoon.
-
