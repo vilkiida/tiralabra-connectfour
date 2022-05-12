@@ -24,8 +24,8 @@ def column_full_check(board, x):
         return True
     return False
 
-def horisontal_check(board):
-    """Funktio, joka tarkistaa onko pelilaudalla voittoa vaakariveissä jommalla kummalla värillä. Funktio palauttaa 0
+def vertical_check(board):
+    """Funktio, joka tarkistaa onko pelilaudalla voittoa pystyriveissä jommalla kummalla värillä. Funktio palauttaa 0
     jos voittoa ei ole, 1 jos keltainen voitti ja 2 jos punainen voitti."""
     for y in range(5,2,-1):
             for x in range(6,-1,-1):
@@ -35,8 +35,8 @@ def horisontal_check(board):
                     return 2
     return 0
 
-def vertical_check(board):
-    """Funktio, joka tarkistaa onko pelilaudalla voittoa pystyriveissä jommalla kummalla värillä. Funktio palauttaa 0
+def horisontal_check(board):
+    """Funktio, joka tarkistaa onko pelilaudalla voittoa vaakariveissä jommalla kummalla värillä. Funktio palauttaa 0
     jos voittoa ei ole, 1 jos keltainen voitti ja 2 jos punainen voitti."""
     for y in range(5,-1,-1):
             for x in range(6,2,-1):
