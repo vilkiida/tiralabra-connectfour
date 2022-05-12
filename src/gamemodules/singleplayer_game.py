@@ -5,7 +5,11 @@ class SinglePlayerGame(Game):
         super().__init__()
         self.title = "tietokonetta vastaan"
     def ai_turn(self):
-        y, x = ai.find_best_move(self.board)
+        numbered_board = ai.make_numbered(self.board)
+        for y in range(6):
+            print(numbered_board[y][:])
+        y, x = ai.find_best_move(numbered_board)
+        print(x,y)
         self.board[y][x].mark_red()
         self.first_players_turn = True
     def draw_token(self):

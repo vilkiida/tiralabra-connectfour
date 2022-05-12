@@ -8,6 +8,7 @@ authors = ["Iida Vilkkinen <iida.vilkkinen@gmail.com>"]
 python = "^3.8"
 pygame = "^2.1.2"
 invoke = "^1.7.0"
+numpy = "^1.22.3"
 
 [tool.poetry.dev-dependencies]
 coverage = "^6.3.2"
