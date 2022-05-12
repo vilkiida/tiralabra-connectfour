@@ -118,7 +118,6 @@ def find_best_move(numbered_board):
     bestgrade = -INF
     for x in ORDER:
         y = lowest_available_numbered(numbered_board, x)
-        print(y)
         if y == -1:
             continue
         numbered_board[y][x] = 2
