@@ -30,7 +30,7 @@ def check_if_4(line):
         return 1
     if line == [2,2,2,2]:
         return 2
-    return -1
+    return 0
 def count_if_3(line):
     if line == [0,1,1,1] or line == [1,1,1,0]:
         return -100
@@ -100,10 +100,10 @@ def calculate_board(board):
     """Funktio, joka palauttaa minimax algoritmille tarvittavan arvosanan kyseisestä pelitilanteesta.
     Arvosana:   +10000 (jos AI voittanut)
                 -1000 (jos pelaaja voittanut)
-                +10   (AI:lla kolme peräkkäin (ilman että blokattu))
-                -100  (Pelaajalla kolme peräkkäin (ilman että blokattu), koska tällöin pelaaja voi voittaa tulevalla vuorollaan)
-                +5    (AI:lla kaksi peräkkäin (ilman että blokattu))
-                -5    (Pelaajalla kaksi peräkkäin (ilman että blokattu))
+                +10   (AI:lla mahdollisessa neljän rivissä kolme peräkkäin (ilman että blokattu))
+                -100  (Pelaajalla mahdollisessa neljän rivissä kolme peräkkäin (ilman että blokattu), koska tällöin pelaaja voi voittaa tulevalla vuorollaan)
+                +5    (AI:lla mahdollisessa neljän rivissä kaksi peräkkäin (ilman että blokattu))
+                -5    (Pelaajalla mahdollisessa neljän rivissä kaksi peräkkäin (ilman että blokattu))
     """
     grade = 0
     grade += vertical_line_check(board)
