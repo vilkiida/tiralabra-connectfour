@@ -1,12 +1,13 @@
 from gamemodules.multiplayer_game import Game
 from gamemodules import ai
 class SinglePlayerGame(Game):
-    def __init__(self):
+    def __init__(self, difficulty):
         super().__init__()
         self.title = "tietokonetta vastaan"
+        self.difficulty = difficulty
     def ai_turn(self):
         numbered_board = ai.make_numbered(self.board)
-        y, x = ai.find_best_move(numbered_board)
+        y, x = ai.find_best_move(numbered_board,self.difficulty)
         self.board[y][x].mark_red()
         self.first_players_turn = True
     def draw_token(self):

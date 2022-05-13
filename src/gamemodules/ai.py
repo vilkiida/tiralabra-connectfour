@@ -112,7 +112,7 @@ def calculate_board(board):
     grade += downwards_diagonal_line_check(board)
     return grade
 
-def find_best_move(numbered_board):
+def find_best_move(numbered_board, depth):
     """Funktio, joka palauttaa parhaan reitin. Kutsuu minimax algoritmia."""
     move = (-1, -1)
     bestgrade = -INF
@@ -121,7 +121,7 @@ def find_best_move(numbered_board):
         if y == -1:
             continue
         numbered_board[y][x] = 2
-        grade = minimax(numbered_board, False, DEPTH, -INF, INF)
+        grade = minimax(numbered_board, False, depth, -INF, INF)
         numbered_board[y][x] = 0
         if grade > bestgrade:
             bestgrade = grade

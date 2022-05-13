@@ -38,8 +38,8 @@ class TestAI(unittest.TestCase):
     
     def test_find_best_move_wins_when_possible(self):
         self.chart[2][4] = 1
-        self.assertEqual((1,3), ai.find_best_move(self.chart))
+        self.assertEqual((1,3), ai.find_best_move(self.chart,2))
     
     def test_find_best_move_blocks_if_needed(self):
         self.chart[1][3] = 1
-        self.assertEqual((2,2), ai.find_best_move(self.chart))
+        self.assertEqual((2,2), ai.find_best_move(self.chart,2))
