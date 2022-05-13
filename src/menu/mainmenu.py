@@ -4,9 +4,9 @@ from turtle import pos
 import pygame
 from gamemodules.multiplayer_game import Game
 from gamemodules.singleplayer_game import SinglePlayerGame
-EASY = 1
-MEDIUM = 3
-VERY_HARD = 5
+EASY = 2
+MEDIUM = 4
+VERY_HARD = 6
 class MainMenu:
     """Luokka, joka vastaa valikon toiminnasta"""
     def __init__(self):
