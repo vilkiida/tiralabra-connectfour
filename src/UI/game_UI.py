@@ -19,17 +19,16 @@ class Game_UI:
         self.screen_height = self.slot_size * 7
         self.screen_width = self.slot_size * 7
         self.screen = None
-        self.title = "toista pelaajaa vastaan"
         self.red_token = load_image("c4_red_piece.png")
         self.yellow_token = load_image("c4_yellow_piece.png")
         self.yellow_in_slot = load_image("c4_yellow.png")
         self.red_in_slot = load_image("c4_red.png")
         self.empty_slot = load_image("c4_empty.png")
-    def game_UI_setup(self):
+    def game_UI_setup(self, title):
         """Funktio, joka tekee tarvittavat alkutoimenpiteet käyttöliittymään liittyen.
         Se lisää ikkunalle otsikon ja määrittää fontit."""
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
-        pygame.display.set_caption(f"CONNECT 4 - {self.title}")
+        pygame.display.set_caption(f"CONNECT 4 - {title}")
         self.font = pygame.font.SysFont("Arial", 45, 1)
     def draw_victory(self, yellow_won, red_won):
         """Funktio, joka piirtää ruudulle tekstin, joka kertoo voittajan. Funktio saa argumenteiksi
