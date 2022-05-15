@@ -154,6 +154,28 @@ class TestMultiplayerGame(unittest.TestCase):
                           [0,0,0,0,0,0,0],
                           [0,0,0,2,1,0,0]],
                         self.game.board)
+    def test_game_stops_running_if_clicked_after_game_over(self):
+        self.game.game_over = True
+        self.game.mouse_click((250,456))
+        self.assertEqual(False, self.game.running)
+    def test_mouse_clicked_does_nothing_if_full_colum_is_clicked(self):
+        self.game.board = [[0,0,2,0,0,0,0], 
+                        [0,0,0,1,0,0,0],
+                        [0,0,0,2,2,0,0],
+                        [0,0,0,1,2,0,0],
+                        [0,0,1,2,1,0,0],
+                        [0,1,2,1,2,2,0]]
+        self.game.yellows_turn = True
+        self.game.mouse_click((225, 467))
+        self.assertEqual([[0,0,2,0,0,0,0], 
+                        [0,0,0,1,0,0,0],
+                        [0,0,0,2,2,0,0],
+                        [0,0,0,1,2,0,0],
+                        [0,0,1,2,1,0,0],
+                        [0,1,2,1,2,2,0]], self.game.board)
+                
+    
+
 
             
         
