@@ -20,10 +20,11 @@ ja sen luoma raportti löytyy sovelluksen juurihakemiston htmlcov kansion index.
 #### Suorituskykytestaus:
 Tekoälyn siirron teon keskimääräistä nopeutta voi testata komentorivi ohjelmalla komennolla **poetry run invoke performance**
 ##### Ohjelman toiminta:
-- Ohjelmalle annetaan komentoriviltä tieto millä vaikeustasolla halutaan testata. h - helppo, v - vaikea tai t - tosi vaikea.
+- Ohjelmalle annetaan komentoriviltä tieto millä vaikeustasolla halutaan testata. **h** - helppo, **v** - vaikea tai **t** - tosi vaikea.
 - Sitten ohjelma kysyy halutun otoskoon, joka annetaan lukuarvona.
 - Ohjelma tulostaa tämän jälkeen otoksen aikojen keskiarvon ja varianssin.
 - Ohjelma kysyy halutaanko tulostaa ajat ja syöttämällä arvon k, ne saa tulostettua.
+- Ohjelma sammuu kun vaikeustasoa kysyttäessä syöttää **l**.
 
 
 
