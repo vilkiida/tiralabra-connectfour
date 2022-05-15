@@ -11,6 +11,15 @@ def lowest_available(board, x):
         if board[y][x] == 0:
             return y
     return -1
+def count_if_4(line):
+    """Funktio, joka tarkistaa onko voittoa parametrina saamassaan 4:n listassa
+    ja laskee pisteet sen mukaisesti.
+    """
+    if line.count(1) == 4:
+        return 10000
+    if line.count(2) == 4:
+        return -1000
+    return 0
 def count_if_3(line):
     """Funktio, joka antaa parametriksi saamalleen 4:n riville
     oikean arvosanan 3-putkien osalta."""
@@ -26,9 +35,9 @@ def horisontal_line_check(board):
         row = board[y][:]
         for x in range(6,2,-1):
             horisontal = [row[x-3],row[x-2],row[x-1],row[x]]
-            if game_logic.check_if_4(horisontal) == 2:
+            if count_if_4(horisontal) == 2:
                 return 10000
-            if game_logic.check_if_4(horisontal) == 1:
+            if count_if_4(horisontal) == 1:
                 return -1000
             grade_change += count_if_3(horisontal)
     return grade_change
@@ -40,9 +49,9 @@ def vertical_line_check(board):
         col = n_board[:,x]
         for y in range(5,2,-1):
             vertical=[col[y-3],col[y-2],col[y-1],col[y]]
-            if game_logic.check_if_4(vertical) == 2:
+            if count_if_4(vertical) == 2:
                 return 10000
-            if game_logic.check_if_4(vertical) == 1:
+            if count_if_4(vertical) == 1:
                 return -1000
             grade_change += count_if_3(vertical)
     return grade_change
@@ -54,9 +63,9 @@ def upwards_diagonal_line_check(board):
         for x in range(3,-1,-1):
             u_diagonal = [board[y][x],board[y-1][x+1],
                         board[y-2][x+2],board[y-3][x+3]]
-            if game_logic.check_if_4(u_diagonal) == 2:
+            if count_if_4(u_diagonal) == 2:
                 return 10000
-            if game_logic.check_if_4(u_diagonal) == 1:
+            if count_if_4(u_diagonal) == 1:
                 return -1000
             grade_change += count_if_3(u_diagonal)
     return grade_change
@@ -68,9 +77,9 @@ def downwards_diagonal_line_check(board):
         for x in range(3,7):
             d_diagonal = [board[y-3][x-3], board[y-2][x-2],
                         board[y-1][x-1], board[y][x]]
-            if game_logic.check_if_4(d_diagonal) == 2:
+            if count_if_4(d_diagonal) == 2:
                 return 10000
-            if game_logic.check_if_4(d_diagonal) == 1:
+            if count_if_4(d_diagonal) == 1:
                 return -1000
             grade_change += count_if_3(d_diagonal)
     return grade_change
