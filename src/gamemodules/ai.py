@@ -35,10 +35,8 @@ def horisontal_line_check(board):
         row = board[y][:]
         for x in range(6,2,-1):
             horisontal = [row[x-3],row[x-2],row[x-1],row[x]]
-            if count_if_4(horisontal) == 2:
-                return 10000
-            if count_if_4(horisontal) == 1:
-                return -1000
+            if count_if_4(horisontal) != 0:
+                return count_if_4(horisontal)
             grade_change += count_if_3(horisontal)
     return grade_change
 def vertical_line_check(board):
@@ -49,10 +47,8 @@ def vertical_line_check(board):
         col = n_board[:,x]
         for y in range(5,2,-1):
             vertical=[col[y-3],col[y-2],col[y-1],col[y]]
-            if count_if_4(vertical) == 2:
-                return 10000
-            if count_if_4(vertical) == 1:
-                return -1000
+            if count_if_4(vertical) != 0:
+                return count_if_4(vertical)
             grade_change += count_if_3(vertical)
     return grade_change
 def upwards_diagonal_line_check(board):
@@ -63,10 +59,8 @@ def upwards_diagonal_line_check(board):
         for x in range(3,-1,-1):
             u_diagonal = [board[y][x],board[y-1][x+1],
                         board[y-2][x+2],board[y-3][x+3]]
-            if count_if_4(u_diagonal) == 2:
-                return 10000
-            if count_if_4(u_diagonal) == 1:
-                return -1000
+            if count_if_4(u_diagonal) != 0:
+                return count_if_4(u_diagonal)
             grade_change += count_if_3(u_diagonal)
     return grade_change
 def downwards_diagonal_line_check(board):
@@ -77,10 +71,8 @@ def downwards_diagonal_line_check(board):
         for x in range(3,7):
             d_diagonal = [board[y-3][x-3], board[y-2][x-2],
                         board[y-1][x-1], board[y][x]]
-            if count_if_4(d_diagonal) == 2:
-                return 10000
-            if count_if_4(d_diagonal) == 1:
-                return -1000
+            if count_if_4(d_diagonal) != 0:
+                return count_if_4(d_diagonal)
             grade_change += count_if_3(d_diagonal)
     return grade_change
 def calculate_board(board):

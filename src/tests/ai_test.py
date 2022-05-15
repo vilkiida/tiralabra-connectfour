@@ -36,3 +36,12 @@ class TestAI(unittest.TestCase):
     def test_find_best_move_blocks_if_needed(self):
         self.board[1][3] = 1
         self.assertEqual((2,2), ai.find_best_move(self.board,2))
+    
+    def test_calculate_board_returns_10000_when_red_has_3_in_row(self):
+        self.board = [[0,0,0,0,0,0,0], 
+                      [0,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0],
+                      [0,0,0,1,0,0,0],
+                      [1,1,2,2,2,2,1]]
+        self.assertEqual(10000, ai.calculate_board(self.board))
