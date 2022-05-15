@@ -7,7 +7,8 @@ Yksikkö testejä on luokille MainMenu, Game ja sen perivälle SinglePlayerGame.
 Käyttöliittymä luokat Menu_UI ja Game_UI on jätetty testauksen ulkopuolelle.
 
 #### Yksikkötesti kattavuusraportti:
-(kuva tähän)
+![](https://github.com/vilkiida/tiralabra-connectfour/blob/main/dokumentaatio/kuvat/coverage-report.png)
+
 Testi kattavuudessa olevat puutteet, johtuvat pitkälti siitä, että en testannut joitakin funktioita, jotka kutsuivat jotakin käyttöliittymä luokan metodia tai niissä oli pygame kirjaston komentoja (esim. en testannut MainMenu luokan tai Game luokan run_game tai run_menu funktioita, sillä niiden kutsuminen käynnistää pelin).
 
 #### Yksikkötestien suorittaminen ja niiden kattavuus raportti:
