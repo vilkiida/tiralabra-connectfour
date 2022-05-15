@@ -1,13 +1,18 @@
 # Toteutusdokumentti
 
 #### Ohjelman yleisrakenne:
+Ohjelmalla on graafinen käyttöliittymä. Käynnistettyä aukeaa pelivalikko, josta voi hiireä käyttämällä valita vastuksen ja vaikeustason ja aloittaa siten haluamansa pelin.
 
 #### Saavutetut aika- ja tilavaativuudet:
-
-#### Suorituskyky- ja O-analyysivertailu:
+Alpha beta karsinnalla aikavaativuus pitäisi olla O(sqrt(b^d)), missä b on lukuarvo, joka kuvaa kuinka moneen solmuun haarautuu yksi minimax algoritmin puun solmu (7 koska pelilaudassa on 7 saraketta). D kuvaa syvyyttä. Saavutetut syvyydet ovat: 
+vaikeustaso "helppo" --> 3
+vaikeustaso "vaikea" --> 5
+vaikeustaso "tosi vaikea" --> 6
 
 #### Työn mahdolliset puutteet ja parannusehdotukset:
-Minimax algoritmia varten pelilaudan eri tilanteille arvosanoja laskeva funktio voisi olla tehokkaampi. Rivien läpikäynti voisi olla nopeampi.
+Minimax algoritmia varten pelilaudan eri tilanteille arvosanoja laskeva funktio voisi olla tehokkaampi ja siten laskentasyvyyttä voitaisiin kasvattaa. Tällä hetkellä se on noin 5-6 ja se voisi olla isompikin. Tekoäly kuitenkin pelaa tälläkin syvyydellä ihan hyvin.
+
+Koska tekoäly käyttää minimax algoritmia, se ei välttämättä toimi niin hyvin kun pelaajan siirrot tehdään randomisti, koska minimax algoritmi olettaa vastapelaajan myös yrittävän tehdä otollisimmat siirrot omalta kannaltaan.
 
 #### Lähteet:
 [Minimax algoritmi - Wikipedia](https://en.wikipedia.org/wiki/Minimax)
