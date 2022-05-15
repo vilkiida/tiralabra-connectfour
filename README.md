@@ -22,3 +22,5 @@ Pygamella toteutettu peli, jossa joko 2 pelaajaa tai 1 pelaaja ja tietokone kilp
 [Viikkoraportti 5](https://github.com/vilkiida/tiralabra-connectfour/blob/main/dokumentaatio/viikkoraportit/viikkoraportti5.md)
 
 [Viikkoraportti 6](https://github.com/vilkiida/tiralabra-connectfour/blob/main/dokumentaatio/viikkoraportit/viikkoraportti6.md)
+
+[Viikkoraportit 7 ja 8](https://github.com/vilkiida/tiralabra-connectfour/blob/main/dokumentaatio/viikkoraportit/viikkoraportti7+8.md)
