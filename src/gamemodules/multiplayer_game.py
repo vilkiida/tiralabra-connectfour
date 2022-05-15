@@ -41,7 +41,7 @@ class Game:
         """Funktio, joka käynnistää pelin."""
         while True:
             pygame.init()
-            self.ui.game_UI_setup()
+            self.ui.game_UI_setup(self.title)
             self.running = True
             self.gameloop()
             break
