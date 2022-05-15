@@ -32,7 +32,7 @@ Tarkoituksena on luoda tekoäly vastustaja, jotta peliä voi pelata myös ilman 
 --> Pelaaja voi siis valita haluamansa vaikeustason, jos valitsee pelin tietokonetta vastaan.
 
 #### Aika- ja tilavaativuus arvio: 
-(Tarkennan ensi viikolla. ja lisään O-analyysit)
-- Minimax algoritmia tulee tehostaa karsinnalla!
-- Tekoälyn tulee tehdä siirtonsa lähes välittömästi. 
+aikaarvio: Alpha beta karsinnalla pitäisi olla O(sqrt(b^d)), missä d on minimax algoritmin syvyys ja b lukuarvo joka kuvaa moneenko solmuun jokainen puun solmu haarautuu (eli pääasiassa 7 koska 7 saraketta).
+
+- Tekoälyn siirtoa ei tulisi joutua odotella liian kauaa. 
 --> jos on vaikeus tasot niin vaikeimmalla tasolla max. pari sekuntia ja helpommilla tasoilla vähemmän. (Aloitan tekemällä ns. keskivaikean tason ja lisään sitten helpon ja vaikeamman tason)
