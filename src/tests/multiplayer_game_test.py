@@ -12,6 +12,10 @@ class TestMultiplayerGame(unittest.TestCase):
         self.assertEqual(False, self.game.red_won)
     def test_after_setup_yellow_has_not_won(self):
         self.assertEqual(False, self.game.yellow_won)
+    def test_after_setuo_red_has_not_won(self):
+        self.assertEqual(False, self.game.red_won)
+    def test_after_setup_ai_has_correct_value(self):
+        self.assertEqual(False, self.game.ai)
     def test_after_setup_all_slots_are_empty(self):
         all_empty = True
         for y in range(6):
