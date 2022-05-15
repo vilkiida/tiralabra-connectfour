@@ -45,3 +45,19 @@ class TestAI(unittest.TestCase):
                       [0,0,0,1,0,0,0],
                       [1,1,2,2,2,2,1]]
         self.assertEqual(10000, ai.calculate_board(self.board))
+    def test_calcute_board_returns_correct_when_yellow_has_3_in_row(self):
+        self.board = [[0,0,0,0,0,0,0], 
+                      [0,0,0,0,0,0,0],
+                      [0,0,0,0,1,0,0],
+                      [0,0,0,1,2,0,0],
+                      [0,0,1,2,1,0,0],
+                      [0,1,2,1,2,2,0]]
+        self.assertEqual(-1000, ai.calculate_board(self.board))
+    def test_find_best_move_works(self):
+        self.board = [[0,0,0,2,0,0,0], 
+                      [0,0,0,1,0,0,0],
+                      [0,0,0,2,0,0,0],
+                      [0,0,0,1,2,0,0],
+                      [0,0,1,2,1,1,0],
+                      [0,1,2,1,2,2,1]]
+        self.assertEqual((2,4), ai.find_best_move(self.board, 5))
