@@ -5,7 +5,7 @@
 #### Mitä on testattu:
 Yksikkö testejä on luokille MainMenu, Game ja sen perivälle SinglePlayerGame. Yksikkötestit testaavat myös ai (tälle omia yksikkötestejä) ja game_logic funktioita.
 Käyttöliittymä luokat Menu_UI ja Game_UI on jätetty testauksen ulkopuolelle.
-Myös tekoälyn siirron tekemisen nopeutta eri vaikeutasoilla testataan omalla komentokäyttöliittymän testiohjelmalla. Ohjelmalle annetaan haluttu vaikeus taso ja otoksen koko ja se luo keskiarvon tekoälyn siirron tekemiseen kuluvasta ajasta halutulla otoksella.
+Myös tekoälyn siirron tekemisen nopeutta eri vaikeutasoilla testataan omalla komentokäyttöliittymän testiohjelmalla. Ohjelmalle annetaan haluttu vaikeus taso ja otoksen koko ja se luo keskiarvon ja varianssin tekoälyn siirron tekemiseen kuluvista ajoista halutulla otoksella.
 
 #### Yksikkötesti kattavuusraportti:
 ![](https://github.com/vilkiida/tiralabra-connectfour/blob/main/dokumentaatio/kuvat/coverage-report.png)
