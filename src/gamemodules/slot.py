@@ -1,6 +1,5 @@
 """Moduuli, joka sisältää Slot luokan
 """
-import pygame
 from load_image import load_image
 class Slot:
     """ Luokka, joka kuvaa yksittäistä pelinappulan koloa pelilaudassa

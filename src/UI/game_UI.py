@@ -20,8 +20,11 @@ class Game_UI:
         self.screen_width = self.slot_size * 7
         self.screen = None
         self.title = "toista pelaajaa vastaan"
-        self.red_token=load_image("c4_red_piece.png")
-        self.yellow_token=load_image("c4_yellow_piece.png")
+        self.red_token = load_image("c4_red_piece.png")
+        self.yellow_token = load_image("c4_yellow_piece.png")
+        self.yellow_in_slot = load_image("c4_yellow.png")
+        self.red_in_slot = load_image("c4_red.png")
+        self.empty_slot = load_image("c4_empty.png")
     def game_UI_setup(self):
         """Funktio, joka tekee tarvittavat alkutoimenpiteet käyttöliittymään liittyen.
         Se lisää ikkunalle otsikon ja määrittää fontit."""
@@ -59,6 +62,14 @@ class Game_UI:
                 self.screen.blit(ai_text, (135,25))
             else:
                 self.screen.blit(self.red_token, (x,0))
+    def pick_image(self, slot):
+        """Funktio, joka valitsee oikean kuvan oikealle ruudukon arvolle."""
+        if slot == 0:
+            return self.empty_slot
+        if slot == 1:
+            return self.yellow_in_slot
+        if slot == 2:
+            return self.red_in_slot
     def draw_screen(self, board, game_over, tie_game, yellow_won,
                     red_won, ai, yellows_turn, mouse_pos):
         """Funktio piirtää näytön. Se saa argumeinteikseen pelilaudan ja tiedot siitä onko
@@ -67,8 +78,8 @@ class Game_UI:
         self.screen.fill((22,8,91))
         for y_value in range(6):
             for x_value in range(7):
-                slot = board[y_value][x_value]
-                self.screen.blit(slot.image, (x_value*self.slot_size, y_value*self.slot_size+100))
+                image = self.pick_image(board[y_value][x_value])
+                self.screen.blit(image, (x_value*self.slot_size, y_value*self.slot_size+100))
         if game_over:
             if not tie_game:
                 self.draw_victory(yellow_won, red_won)

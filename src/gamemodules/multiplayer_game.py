@@ -2,7 +2,6 @@
 from doctest import ELLIPSIS_MARKER
 import pygame
 from gamemodules import game_logic
-from gamemodules.slot import Slot
 from UI.game_UI import Game_UI
 
 # ensimmäinen pelaaja on keltainen toinen pelaaja on punainen
@@ -10,7 +9,7 @@ class Game:
     """Luokka, joka vastaa kaksinpelin toiminnasta"""
     def __init__(self):
         self.ui = Game_UI()
-        self.board = [[Slot() for x in range(7)] for y in range(6)]
+        self.board = [[0 for x in range(7)] for y in range(6)]
         self.running = False
         self.red_won = False
         self.yellow_won = False
@@ -27,15 +26,15 @@ class Game:
             self.gameloop()
             break
     def restart_game(self):
-        self.board = [[Slot() for x in range(7)] for y in range(6)]
+        self.board = [[0 for x in range(7)] for y in range(6)]
         self.running = True
         self.red_won = False
         self.yellow_won = False
         self.tie_game = False
         self.game_over = False
         self.yellows_turn = True
-    def column_full(self, x_value):
-        return game_logic.column_full_check(self.board, x_value)
+    def column_full(self, x):
+        return game_logic.column_full_check(self.board, x)
     def red_wins(self):
         self.red_won = True
         self.game_over = True
@@ -62,13 +61,13 @@ class Game:
             x = x//100
             if not self.column_full(x):
                 for i in range(5,-1,-1):
-                    if self.board[i][x].is_empty():
+                    if self.board[i][x] == 0:
                         if self.yellows_turn:
-                            self.board[i][x].mark_yellow()
+                            self.board[i][x] = 1
                             self.yellows_turn = False
                             break
                         else:
-                            self.board[i][x].mark_red()
+                            self.board[i][x] = 2
                             self.yellows_turn = True
                             break
             self.check_for_win()

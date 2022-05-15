@@ -1,12 +1,8 @@
 import unittest
 from gamemodules import ai
-from gamemodules.slot import Slot
-
-
 class TestAI(unittest.TestCase):
     def setUp(self):
-        self.board = [[Slot() for x in range(7)] for y in range(6)]
-        self.chart = [[0,0,0,0,0,0,0], 
+        self.board = [[0,0,0,0,0,0,0], 
                       [0,0,0,0,0,0,0],
                       [0,0,0,2,0,0,0],
                       [0,0,1,2,1,1,0],
