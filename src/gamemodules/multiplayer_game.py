@@ -3,8 +3,6 @@ from doctest import ELLIPSIS_MARKER
 import pygame
 from gamemodules import game_logic
 from UI.game_UI import Game_UI
-
-# ensimmäinen pelaaja on keltainen toinen pelaaja on punainen
 class Game:
     """Luokka, joka vastaa kaksinpelin toiminnasta.
     Ensimmäinen pelaaja on aina keltainen ja toinen punainen.

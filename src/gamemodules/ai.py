@@ -15,10 +15,10 @@ def count_if_4(line):
     """Funktio, joka tarkistaa onko voittoa parametrina saamassaan 4:n listassa
     ja laskee pisteet sen mukaisesti.
     """
-    if line.count(1) == 4:
-        return 10000
-    if line.count(2) == 4:
+    if line == [1,1,1,1]:
         return -1000
+    if line == [2,2,2,2]:
+        return 10000
     return 0
 def count_if_3(line):
     """Funktio, joka antaa parametriksi saamalleen 4:n riville
