@@ -24,7 +24,7 @@ Tekoälyn siirron teon keskimääräistä nopeutta voi testata komentorivi ohjel
 - Sitten ohjelma kysyy halutun otoskoon, joka annetaan lukuarvona.
 - Ohjelma tulostaa tämän jälkeen otoksen aikojen keskiarvon ja varianssin.
 - Ohjelma kysyy halutaanko tulostaa ajat ja syöttämällä arvon k, ne saa tulostettua.
-- Ohjelma sammuu kun vaikeustasoa kysyttäessä syöttää **l**.
+- Ohjelma sammuu kun vaikeustasoa kysyttäessä syöttää **l** (pieni kirjain).
 
 
 
