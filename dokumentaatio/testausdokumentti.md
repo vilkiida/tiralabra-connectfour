@@ -5,6 +5,7 @@
 #### Mitä on testattu:
 Yksikkö testejä on luokille MainMenu, Game ja sen perivälle SinglePlayerGame. Yksikkötestit testaavat myös ai (tälle omia yksikkötestejä) ja game_logic funktioita.
 Käyttöliittymä luokat Menu_UI ja Game_UI on jätetty testauksen ulkopuolelle.
+Myös tekoälyn siirron tekemisen nopeutta eri vaikeutasoilla testataan omalla komentokäyttöliittymän testiohjelmalla. Ohjelmalle annetaan haluttu vaikeus taso ja otoksen koko ja se luo keskiarvon tekoälyn siirron tekemiseen kuluvasta ajasta halutulla otoksella.
 
 #### Yksikkötesti kattavuusraportti:
 ![](https://github.com/vilkiida/tiralabra-connectfour/blob/main/dokumentaatio/kuvat/coverage-report.png)
@@ -16,6 +17,13 @@ Yksikkötestit voi suorittaa komennolla **poetry run invoke test**
 Testikattavuusraportin saa luotua komennolla **poetry run invoke coverage-report**
 ja sen luoma raportti löytyy sovelluksen juurihakemiston htmlcov kansion index.html tiedostosta.
 
+#### Suorituskykytestaus:
+Tekoälyn siirron teon keskimääräistä nopeutta voi testata komentorivi ohjelmalla komennolla **poetry run invoke performance**
+##### Ohjelman toiminta:
+- Ohjelmalle annetaan komentoriviltä tieto millä vaikeustasolla halutaan testata. h - helppo, v - vaikea tai t - tosi vaikea.
+- Sitten ohjelma kysyy halutun otoskoon, joka annetaan lukuarvona.
+- Ohjelma tulostaa tämän jälkeen otoksen aikojen keskiarvon ja varianssin.
+- Ohjelma kysyy halutaanko tulostaa ajat ja syöttämällä arvon k, ne saa tulostettua.
 
 
 
