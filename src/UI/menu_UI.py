@@ -14,6 +14,7 @@ class Menu_UI:
         background_color: Tuple, joka kuvaa taustaväriä värikoodia.
         button_color: Tuple, joka kuvaa painikkeiden väriä värikoodina."""
     def __init__(self):
+        """Luokan konstruktori, jolle ei anneta argumentteja."""
         self.screen_height = 700
         self.screen_width = 700
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))

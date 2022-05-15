@@ -5,3 +5,4 @@ htmlcov
 src/menu/__pycache__
 src/gamemodules/__pycache__
 src/tests/__pycache__
+src/UI/__pycache__
