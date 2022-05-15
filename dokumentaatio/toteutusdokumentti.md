@@ -4,7 +4,7 @@
 Ohjelmalla on graafinen käyttöliittymä. Käynnistettyä aukeaa pelivalikko, josta voi hiireä käyttämällä valita vastuksen ja vaikeustason ja aloittaa siten haluamansa pelin.
 
 #### Saavutetut aika- ja tilavaativuudet:
-Alpha beta karsinnalla aikavaativuus pitäisi olla O(sqrt(b^d)), missä b on lukuarvo, joka kuvaa kuinka moneen solmuun haarautuu yksi minimax algoritmin puun solmu (7 koska pelilaudassa on 7 saraketta). D kuvaa syvyyttä. Saavutetut syvyydet ovat: 
+Alpha beta karsinnalla aikavaativuus pitäisi olla parhaimmillaan O(sqrt(b^d)), missä b on lukuarvo, joka kuvaa kuinka moneen solmuun haarautuu yksi minimax algoritmin puun solmu (7 koska pelilaudassa on 7 saraketta). D kuvaa syvyyttä. Pahimmassa tapauksessa, eli kun koko puu täytyy käydä (alpha beta karsinnasta ei siis ole apua) läpi on aika vaativuus O(b^d). Saavutetut syvyydet ovat: 
 
 vaikeustaso "helppo" --> 3
 
