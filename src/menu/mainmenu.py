@@ -5,8 +5,8 @@ import pygame
 from gamemodules.multiplayer_game import Game
 from gamemodules.singleplayer_game import SinglePlayerGame
 from UI.menu_UI import Menu_UI
-EASY = 2
-HARD = 4
+EASY = 3
+HARD = 5
 VERY_HARD = 6
 class MainMenu:
     """Luokka, joka vastaa valikon toiminnasta

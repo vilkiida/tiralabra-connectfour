@@ -17,9 +17,9 @@ def check_if_4(line):
     lukuarvon sen mukaan kumman pelaajan nappulat on kyseessä tai
     -1 jos ei kumpikaan.
     """
-    if line == [1,1,1,1]:
+    if line.count(1) == 4:
         return 1
-    if line == [2,2,2,2]:
+    if line.count(2) == 4:
         return 2
     return -1
 def win_check(board):

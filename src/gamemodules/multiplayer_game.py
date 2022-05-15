@@ -131,4 +131,3 @@ class Game:
                             self.tie_game, self.yellow_won,
                             self.red_won, self.ai,
                             self.yellows_turn, self.mouse_pos)
-

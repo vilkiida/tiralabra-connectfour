@@ -19,14 +19,6 @@ def count_if_3(line):
     if line == [0,2,2,2] or line == [2,2,2,0]:
         return 10
     return 0
-def count_if_2(line):
-    """Funktio, joka antaa parametriksi saamalleen 4:n riville
-    oikean arvosanan 2-putkien osalta."""
-    if line == [0,1,1,0] or line == [0,0,1,1] or line == [1,1,0,0]:
-        return -5
-    if line == [0,2,2,0] or line == [0,0,2,2] or line == [2,2,0,0]:
-        return +5
-    return 0
 def horisontal_line_check(board):
     """Funktio, joka tarkistaa arvosanan muutoksen vaakariveiltä."""
     grade_change = 0
@@ -34,12 +26,11 @@ def horisontal_line_check(board):
         row = board[y][:]
         for x in range(6,2,-1):
             horisontal = [row[x-3],row[x-2],row[x-1],row[x]]
-            # if check_if_4(horisontal) == 2:
-            #     return 10000
-            # if check_if_4(horisontal) == 1:
-            #     return -1000
+            if game_logic.check_if_4(horisontal) == 2:
+                return 10000
+            if game_logic.check_if_4(horisontal) == 1:
+                return -1000
             grade_change += count_if_3(horisontal)
-            grade_change += count_if_2(horisontal)
     return grade_change
 def vertical_line_check(board):
     """Funktio, joka tarkistaa arvosanan muutoksen pystyriveiltä."""
@@ -49,12 +40,11 @@ def vertical_line_check(board):
         col = n_board[:,x]
         for y in range(5,2,-1):
             vertical=[col[y-3],col[y-2],col[y-1],col[y]]
-            # if check_if_4(vertical) == 2:
-            #     return 10000
-            # if check_if_4(vertical) == 1:
-            #     return -1000
+            if game_logic.check_if_4(vertical) == 2:
+                return 10000
+            if game_logic.check_if_4(vertical) == 1:
+                return -1000
             grade_change += count_if_3(vertical)
-            grade_change += count_if_2(vertical)
     return grade_change
 def upwards_diagonal_line_check(board):
     """Funktio, joka tarkistaa arvosanan muutoksen ylöspäin viistoon
@@ -64,12 +54,11 @@ def upwards_diagonal_line_check(board):
         for x in range(3,-1,-1):
             u_diagonal = [board[y][x],board[y-1][x+1],
                         board[y-2][x+2],board[y-3][x+3]]
-            # if check_if_4(u_diagonal) == 2:
-            #     return 10000
-            # if check_if_4(u_diagonal) == 1:
-            #     return -1000
+            if game_logic.check_if_4(u_diagonal) == 2:
+                return 10000
+            if game_logic.check_if_4(u_diagonal) == 1:
+                return -1000
             grade_change += count_if_3(u_diagonal)
-            grade_change += count_if_2(u_diagonal)
     return grade_change
 def downwards_diagonal_line_check(board):
     """Funktio, joka tarkistaa arvosanan muutoksen alaspäin viistoon
@@ -79,26 +68,36 @@ def downwards_diagonal_line_check(board):
         for x in range(3,7):
             d_diagonal = [board[y-3][x-3], board[y-2][x-2],
                         board[y-1][x-1], board[y][x]]
-            # if check_if_4(d_diagonal) == 2:
-            #     return 10000
-            # if check_if_4(d_diagonal) == 1:
-            #     return -1000
+            if game_logic.check_if_4(d_diagonal) == 2:
+                return 10000
+            if game_logic.check_if_4(d_diagonal) == 1:
+                return -1000
             grade_change += count_if_3(d_diagonal)
-            grade_change += count_if_2(d_diagonal)
     return grade_change
 def calculate_board(board):
-    """Funktio, joka palauttaa minimax algoritmille tarvittavan arvosanan kyseisestä pelitilanteesta.
+    """Funktio, joka palauttaa minimax algoritmille tarvittavan
+    arvosanan kyseisestä pelitilanteesta.
     Arvosana:   +10000 (jos AI voittanut)
-                -1000 (jos pelaaja voittanut)
-                +10   (AI:lla mahdollisessa neljän rivissä kolme peräkkäin (ilman että blokattu))
-                -100  (Pelaajalla mahdollisessa neljän rivissä kolme peräkkäin (ilman että blokattu), koska tällöin pelaaja voi voittaa tulevalla vuorollaan)
-                +5    (AI:lla mahdollisessa neljän rivissä kaksi peräkkäin (ilman että blokattu))
-                -5    (Pelaajalla mahdollisessa neljän rivissä kaksi peräkkäin (ilman että blokattu))
+                -1000  (jos pelaaja voittanut)
+                +10    (AI:lla mahdollisessa neljän rivissä kolme
+                       peräkkäin (ilman että blokattu) eli yhdesta
+                       kolmen rivistä voi siis tulla pisteet 2 kertaa
+                       jos sen voi täydentää kummastakin päästä.)
+                -100   (Pelaajalla mahdollisessa neljän rivissä kolme
+                       peräkkäin (ilman että blokattu) eli yhdestä
+                       kolmen rivistä voi siis tulla pisteet 2 kertaa,
+                       jos sen voi täydentää kummastakin päästä.)
     """
     grade = 0
     grade += vertical_line_check(board)
+    if grade >= 10000 or grade <= -1000:
+        return grade
     grade += horisontal_line_check(board)
+    if grade >= 10000 or grade <= -1000:
+        return grade
     grade += upwards_diagonal_line_check(board)
+    if grade >= 10000 or grade <= -1000:
+        return grade
     grade += downwards_diagonal_line_check(board)
     return grade
 
