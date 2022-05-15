@@ -6,6 +6,7 @@
 - Peli käynnistyy komennolla **poetry run invoke start**
 - Pylint raportin saa komennolla **poetry run invoke pylint**
 - Testit voi ajaa komennolla **poetry run invoke test**
+- Suorituskykyä voi testata komentoriviohjelmalla joka käynnistyy komennolla **poetry run invoke performance**
 
 ## Pelin pelaaminen:
 
