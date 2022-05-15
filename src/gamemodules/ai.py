@@ -1,9 +1,10 @@
 """Moduuli, joka sisältää tekoäly vastuksen logiikkaan liittyviä funktioita"""
 import numpy
 from gamemodules import game_logic
+"""ORDER muuttuja on lista x-arvoja, joka kuvaa otollisimman järjestyksen käydä
+läpi pelilaudan sarakkeet"""
 ORDER = [3,2,4,1,5,0,6]
 INF = 10000000
-DEPTH = 5
 def lowest_available(board, x):
     """Funktio, joka etsii numeroidun pelilaudan halutun sarakkeen x alimman vapaan ruudun koordinaatin y. Jos täynnä niin palauttaa -1"""
     for y in range(5,-1,-1):
@@ -11,18 +12,23 @@ def lowest_available(board, x):
             return y
     return -1
 def count_if_3(line):
+    """Funktio, joka antaa parametriksi saamalleen 4:n riville
+    oikean arvosanan 3-putkien osalta."""
     if line == [0,1,1,1] or line == [1,1,1,0]:
         return -100
     if line == [0,2,2,2] or line == [2,2,2,0]:
         return 10
     return 0
 def count_if_2(line):
+    """Funktio, joka antaa parametriksi saamalleen 4:n riville
+    oikean arvosanan 2-putkien osalta."""
     if line == [0,1,1,0] or line == [0,0,1,1] or line == [1,1,0,0]:
         return -5
     if line == [0,2,2,0] or line == [0,0,2,2] or line == [2,2,0,0]:
         return +5
     return 0
 def horisontal_line_check(board):
+    """Funktio, joka tarkistaa arvosanan muutoksen vaakariveiltä."""
     grade_change = 0
     for y in range(5,-1,-1):
         row = board[y][:]
@@ -36,6 +42,7 @@ def horisontal_line_check(board):
             grade_change += count_if_2(horisontal)
     return grade_change
 def vertical_line_check(board):
+    """Funktio, joka tarkistaa arvosanan muutoksen pystyriveiltä."""
     grade_change = 0
     n_board = numpy.array(board)
     for x in ORDER:
@@ -50,6 +57,8 @@ def vertical_line_check(board):
             grade_change += count_if_2(vertical)
     return grade_change
 def upwards_diagonal_line_check(board):
+    """Funktio, joka tarkistaa arvosanan muutoksen ylöspäin viistoon
+    olevilta riveiltä (vasemmalta oikealle katsottuna)."""
     grade_change = 0
     for y in range(5,2,-1):
         for x in range(3,-1,-1):
@@ -63,6 +72,8 @@ def upwards_diagonal_line_check(board):
             grade_change += count_if_2(u_diagonal)
     return grade_change
 def downwards_diagonal_line_check(board):
+    """Funktio, joka tarkistaa arvosanan muutoksen alaspäin viistoon
+    olevilta riveiltä (vasemmalta oikealle katsottuna)."""
     grade_change = 0
     for y in range(5,2,-1):
         for x in range(3,7):
@@ -92,7 +103,8 @@ def calculate_board(board):
     return grade
 
 def find_best_move(board, depth):
-    """Funktio, joka palauttaa parhaan reitin. Kutsuu minimax algoritmia."""
+    """Funktio, joka palauttaa parhaan reitin.
+    Kutsuu minimax algoritmia."""
     move = (-1, -1)
     bestgrade = -INF
     for x in ORDER:
@@ -108,8 +120,12 @@ def find_best_move(board, depth):
     return move
 
 def minimax(board, is_max, depth, alpha, beta):
-    """Funktio, joka toteuttaa minimax algoritmin. Sille annetaan argumentiksi pelilauta, boolean arvo, joka määrittää ollaanko minimax algoritmin
-    min vai max kohdassa. Viimeinen argumentti on syvyys. Kun funktiota ensimmäisen kerran kutsutaan annetaan syyvyys kuinka pitkälle siirtoja halutaan laskea"""
+    """Funktio, joka toteuttaa minimax algoritmin.
+    Sille annetaan argumentiksi pelilauta, boolean arvo, 
+    joka määrittää ollaanko minimax algoritmin
+    min vai max kohdassa. Viimeinen argumentti on syvyys.
+    kuinka pitkälle siirtoja halutaan laskea
+    (vaikeustason mukaan)"""
     if depth == 0:
         return calculate_board(board)
     winner = game_logic.win_check(board)
